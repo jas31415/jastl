@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
-project(jastl)
+project(jastl CXX)
+set(CMAKE_CXX_STANDARD 26)
 
 include_directories("${PROJECT_SOURCE_DIR}/${PROJECT_NAME}")
 
