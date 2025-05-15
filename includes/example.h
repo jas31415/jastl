@@ -2,4 +2,5 @@
 
 class Example
 {
+	void SomeMethod();
 };

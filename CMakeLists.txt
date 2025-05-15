@@ -1,28 +1,21 @@
 cmake_minimum_required(VERSION 3.10)
-project(jastl CXX)
-set(CMAKE_CXX_STANDARD 26)
-
-include_directories("${PROJECT_SOURCE_DIR}/${PROJECT_NAME}")
+set(CMAKE_CXX_STANDARD 98)
+project(jastl-${CMAKE_CXX_STANDARD} CXX)
 
 # clears pre-existing build directory
 if(EXISTS ${CMAKE_BINARY_DIR})
-	# message("aaaaaaawoooooooooooooooooooooooo")
 	file(REMOVE_RECURSE ${CMAKE_BINARY_DIR})
 endif()
 
+# manage include folders here, depending on selected STL standard
+include_directories(includes)
+
 # this generates the actual library
-add_library(${PROJECT_NAME})
-target_sources(${PROJECT_NAME}
-PRIVATE
-	# add source files here
+add_library(${PROJECT_NAME}
 	src/example.cpp
 )
 
 # this is for the unit tests executable
-set(EXE_NAME "${PROJECT_NAME}-unit-tests")
-add_executable(${EXE_NAME})
-target_link_libraries(${EXE_NAME} "${CMAKE_BINARY_DIR}/libjastl.a")
-target_sources(${EXE_NAME}
-PRIVATE
+add_executable(${PROJECT_NAME}-unit-tests
 	unit_tests.cpp
 )
