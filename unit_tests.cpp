@@ -4,10 +4,12 @@
 
 	note for developers
 		since this program is not complicated but needs to compile in all standards
-		i advise you to default to C++98 features whenever possible
+		i advise you to restrict yourself to C++98 features, and deal with deprecations using pre-processor statements
+		i will leave you with a good resource for c++98 here: https://cplusplus.com/doc/oldtutorial/
 */
 
 #include <iostream>
+#include <string>
 
 #include "example.h"
 
@@ -25,17 +27,29 @@ int main()
 		"\tjastl\t\t\t\tShows the jastl version currently being used\n"
 		"\thelp\t\t\t\tShows this menu\n";
 
-	// the input length is 18 because the longest valid character sequence is "condition_variable", any input longer than this would be invalid
-	char input[18]( "" );
+	// the argument length is 18 because the longest valid character sequence is "condition_variable", any argument longer than this would be invalid
+	const int maxInputLength = 18;
+	char argument[maxInputLength];
+	std::string command;
 
-	std::cout << welcomeMessage << helpMessage << std::endl;
+	// std::cout << welcomeMessage << helpMessage << std::endl;
 
 	while (true)
 	{
+		// requesting command
+		std::cout << "> ";
+		std::getline(std::cin, command);
+
+		//begin parsing arguments
+		do
+		{
+			// if ();
+			std::cout << __cplusplus;
+		}
+		while (false);
+
 		break;
 	}
-
-	// Singleton<Example> s{};
 	
 
 	std::cout << "Press any key to exit the terminal." << std::endl;
@@ -43,3 +57,4 @@ int main()
 
 	return 0;
 }
+

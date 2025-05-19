@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.25)
-set(CMAKE_CXX_STANDARD 98) # <----------- ATTENTION ALL BUILDERS! change c++ standard here, and nowhere else
+set(CMAKE_CXX_STANDARD 98) # <----- ATTENTION ALL BUILDERS! change c++ standard here, and nowhere else
 project(jastl-${CMAKE_CXX_STANDARD} CXX)
 
 # clears pre-existing build directory
@@ -12,7 +12,8 @@ include_directories(includes)
 
 # this generates the actual library (static)
 add_library(${PROJECT_NAME}
-	src/example.cpp
+	src/macros.cpp
+	src/string.cpp
 )
 
 # this is for the unit tests executable
