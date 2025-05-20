@@ -30,7 +30,8 @@ int main()
 	// the argument length is 18 because the longest valid character sequence is "condition_variable", any argument longer than this would be invalid
 	// const int maxInputLength = 18;
 	// char argument[maxInputLength];
-	String command;
+	String* command = new String;
+	String cmd;
 
 	// std::cout << welcomeMessage << helpMessage << std::endl;
 
@@ -38,13 +39,15 @@ int main()
 	{
 		// requesting command
 		std::cout << "> ";
-		std::getline(std::cin, command);
+		std::getline(std::cin, *command);
 
 		//begin parsing arguments
 		do
 		{
 			// if ();
-			std::cout << __cplusplus;
+			std::cout << __cplusplus << std::endl;
+			std::cout << command->text() << std::endl;
+			std::cout << (String98)cmd.text() << std::endl;
 		}
 		while (false);
 
@@ -54,6 +57,8 @@ int main()
 
 	std::cout << "Press any key to exit the terminal." << std::endl;
 	std::cin.get();
+
+	delete command;
 
 	return 0;
 }

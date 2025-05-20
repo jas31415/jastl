@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <cstdlib>
 #include "macros.h"
 
 /*
@@ -12,7 +13,7 @@ public:
 		using `new` to instantiate a String does not work as expected
 		refer to the [README.md](../README.md) for an exaplanation of how it works, and why
 	*/
-	void* operator new(std::size_t size);
+	void* operator new(size_t size);
 
 	// C++98 body
 #if __cplusplus == CPP98
@@ -21,6 +22,7 @@ public:
 	String(const char* stringliteral);
 	String(const std::string& string);
 	~String();
+	virtual std::string text();
 
 #endif /* 98 */
 
@@ -42,6 +44,10 @@ public:
 class String98 : public String
 {
 public:
+	void* operator new(size_t size)
+	{
+		return std::malloc(sizeof(String98));
+	}
 
 	// C++98 body
 #if __cplusplus == CPP98
@@ -50,6 +56,7 @@ public:
 	String98(const char* stringliteral);
 	String98(const std::string& string);
 	~String98();
+	std::string text();
 
 #endif /* 98 */
 

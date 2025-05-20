@@ -4,10 +4,11 @@
 	String
 */
 
-void* String::operator new(std::size_t size)
+void* String::operator new(size_t size)
 {
 #if __cplusplus == CPP98
 
+	// return std::malloc(sizeof(String98));
 	return new String98;
 
 #endif /* 98 */
@@ -50,6 +51,7 @@ String::String() : std::string() {}
 String::String(const char* stringliteral) : std::string(stringliteral) {}
 String::String(const std::string& string) : std::string(string) {}
 String::~String() {}
+std::string String::text() { return "String"; }
 
 #endif /* 98 */
 
@@ -75,6 +77,7 @@ String98::~String98()
 {
 	String::~String();
 }
+std::string String98::text() { return "String98"; }
 
 #endif /* 98 */
 
