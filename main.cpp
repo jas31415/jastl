@@ -1,6 +1,5 @@
 /*
-	unit-tests.cpp is the file where unit tests are performed with the wrapper classes
-	the main function is therefore also defined here
+	main.cpp is the file where unit tests are performed on the wrapper classes
 
 	note for developers
 		since this program is not complicated but needs to compile in all standards
@@ -15,7 +14,6 @@
 int main()
 {
 	const String welcomeMessage = "Welcome to the unit tester for jastl!";
-	
 	const String helpMessage =
 		"\nConsider the following\n"
 		"\ttest -e, --everything\t\tPerforms unit tests on all headers\n"
@@ -25,13 +23,20 @@ int main()
 		"\tlist -a, --available\t\tLists all header available in this C++ Standard version\n"
 		"\tstd\t\t\t\tShows the C++ Standard version currently being used\n"
 		"\tjastl\t\t\t\tShows the jastl version currently being used\n"
-		"\thelp\t\t\t\tShows this menu\n";
+		"\thelp\t\t\t\tShows this menu\n"
+		"\tquit\t\t\t\tFinishes the program\n";
+
+	// string container for the command fetched from user input
+	String cmd;
 
 	// the argument length is 18 because the longest valid character sequence is "condition_variable", any argument longer than this would be invalid
-	// const int maxInputLength = 18;
-	// char argument[maxInputLength];
-	String* command = new String;
-	String cmd;
+	const int maxArgLen = 18;
+
+	// argument to be substringed from the command
+	String arg;
+
+	// 
+	size_t prev_idx = 0;
 
 	// std::cout << welcomeMessage << helpMessage << std::endl;
 
@@ -39,26 +44,25 @@ int main()
 	{
 		// requesting command
 		std::cout << "> ";
-		std::getline(std::cin, *command);
+		std::getline(std::cin, cmd);
 
 		//begin parsing arguments
 		do
 		{
-			// if ();
-			std::cout << __cplusplus << std::endl;
-			std::cout << command->text() << std::endl;
-			std::cout << (String98)cmd.text() << std::endl;
+			// obtain argument
+			arg = cmd.substr(' ', prev_idx);
+			prev_idx += arg.size() + 1;
+
+			// validate argument
+			if (arg.size() > maxArgLen)
+			{
+				std::cerr << "'" << arg << "' is not a valid argument." << std::endl;
+				// TODO: add context sensitive feedback
+				break;
+			}
 		}
-		while (false);
-
-		break;
+		while (prev_idx < cmd.size());
 	}
-	
-
-	std::cout << "Press any key to exit the terminal." << std::endl;
-	std::cin.get();
-
-	delete command;
 
 	return 0;
 }
