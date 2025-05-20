@@ -5,18 +5,18 @@
 	note for developers
 		since this program is not complicated but needs to compile in all standards
 		i advise you to restrict yourself to C++98 features, and deal with deprecations using pre-processor statements
-		i will leave you with a good resource for c++98 here: https://cplusplus.com/doc/oldtutorial/
+		i will leave you with a good resource for C++98 here: https://cplusplus.com/doc/oldtutorial/
 */
 
 #include <iostream>
-#include <string>
 
-#include "example.h"
+#include "string.h"
 
 int main()
 {
-	const std::string welcomeMessage = "Welcome to the unit tester for jastl!";
-	const std::string helpMessage =
+	const String welcomeMessage = "Welcome to the unit tester for jastl!";
+	
+	const String helpMessage =
 		"\nConsider the following\n"
 		"\ttest -e, --everything\t\tPerforms unit tests on all headers\n"
 		"\test -a, --available\t\tPerforms unit tests on all headers available in this C++ Standard version\n"
@@ -28,9 +28,9 @@ int main()
 		"\thelp\t\t\t\tShows this menu\n";
 
 	// the argument length is 18 because the longest valid character sequence is "condition_variable", any argument longer than this would be invalid
-	const int maxInputLength = 18;
-	char argument[maxInputLength];
-	std::string command;
+	// const int maxInputLength = 18;
+	// char argument[maxInputLength];
+	String command;
 
 	// std::cout << welcomeMessage << helpMessage << std::endl;
 
