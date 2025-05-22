@@ -2,7 +2,7 @@
 #include "macros.h"
 
 /*
-	jastl UnitTest base class
+	jastd UnitTest base class
 */
 class UnitTest
 {
