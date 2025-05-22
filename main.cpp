@@ -13,7 +13,7 @@
 
 int main()
 {
-	const String welcomeMessage = "Welcome to the unit tester for jastl!";
+	const String welcomeMessage = "Welcome to the unit tester for jastd!";
 	const String helpMessage =
 		"\nConsider the following\n"
 		"\ttest -e, --everything\t\tPerforms unit tests on all headers\n"
@@ -22,7 +22,7 @@ int main()
 		"\tlist -e, --everything\t\tLists all headers\n"
 		"\tlist -a, --available\t\tLists all header available in this C++ Standard version\n"
 		"\tstd\t\t\t\tShows the C++ Standard version currently being used\n"
-		"\tjastl\t\t\t\tShows the jastl version currently being used\n"
+		"\tjastl\t\t\t\tShows the jastd version currently being used\n"
 		"\thelp\t\t\t\tShows this menu\n"
 		"\tquit\t\t\t\tFinishes the program\n";
 
