@@ -16,6 +16,6 @@ public:
 	virtual void PerformTests() = 0;
 
 private:
-	// UnitTest(const UnitTest& other);
+	UnitTest(const UnitTest& other){};
 #endif /* 98 */
 };
