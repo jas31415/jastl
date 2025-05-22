@@ -3,7 +3,7 @@
 #include "macros.h"
 
 /*
-	jastl wrapper for std::string
+	jastd wrapper for std::string
 */
 class String : public std::string
 {
