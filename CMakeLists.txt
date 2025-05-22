@@ -1,15 +1,13 @@
 cmake_minimum_required(VERSION 3.25)
 set(CMAKE_CXX_STANDARD 98) # <----- ATTENTION ALL BUILDERS! change c++ standard here, and nowhere else
-project(jastl-${CMAKE_CXX_STANDARD} CXX)
-
-# set(ENABLE_DATE_TESTING true)
+project(jastd-${CMAKE_CXX_STANDARD} CXX)
 
 # clears pre-existing build directory
 if(EXISTS ${CMAKE_BINARY_DIR})
 	file(REMOVE_RECURSE ${CMAKE_BINARY_DIR})
 endif()
 
-# manage include folders here, depending on selected STL standard
+# manage include folders here, depending on selected c++ standard
 include_directories(includes)
 
 # this generates the actual library (static)
