@@ -20,7 +20,8 @@ add_library(${PROJECT_NAME}
 
 # this is for the unit tests executable
 add_executable(${PROJECT_NAME}-unit-tests
-	unit_tests.cpp
+	main.cpp
+	src/unit_test.cpp
 )
 add_dependencies(${PROJECT_NAME}-unit-tests ${PROJECT_NAME})
 
