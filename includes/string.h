@@ -2,37 +2,23 @@
 #include <string>
 #include "macros.h"
 
-/*
-	jastd wrapper for std::string
-*/
-class String : public std::string
+namespace jastd
 {
-public:
-	// C++98 body
-#if __cplusplus == CPP98
+	/*
+		jastd wrapper for std::string
+	*/
+	class string : public std::string
+	{
+	public:
+		// C++98 body
+	#if USING_STD(CPP98)
 
-	explicit String();
-	String(const char* str_literal);
-	String(const std::string& str);
-	~String();
+		explicit string();
+		string(const char* str_literal);
+		string(const std::string& str);
 
-	String substr(char delim, size_t pos = 0);
+		string substr(char delim, size_t pos = 0);
 
-#endif /* 98 */
-
-	// C++11 body
-#if __cplusplus >= CPP11
-
-	explicit String() = default;
-	String(const char* str_literal);
-	String(const std::string& str);
-	virtual ~String() = default;
-
-	String substr(char delim, size_t pos = 0);
-
-#endif /* 11 */
-};
-
-/*
-	jastl unit-tester for the std::string wrapper
-*/
+	#endif /* 98 */
+	};
+}

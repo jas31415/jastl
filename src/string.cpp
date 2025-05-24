@@ -2,16 +2,16 @@
 #include <stdexcept>
 
 /*
-	String
+	jastd string class definition
 */
+using namespace jastd;
 
 // C++98 definitions
 #if USING_STD(CPP98)
 
-String::String() : std::string() { }
-String::String(const char* str_literal) : std::string(str_literal) { }
-String::String(const std::string& str) : std::string(str) { }
-String::~String() { }
+string::string() : std::string() { }
+string::string(const char* str_literal) : std::string(str_literal) { }
+string::string(const std::string& str) : std::string(str) { }
 
 /**
  * 	@brief  Get a substring using a delimiter.
@@ -21,24 +21,16 @@ String::~String() { }
  *  @throw  std::out_of_range If pos > size().
  * 
  *  Constructs a new string containing all characters between index @a pos and @a delim.
- * 	If @a delim is never met, the entirety of the remaining string returns.
- *  If @a pos is larger than the size of the string, std::out_of_range is thrown.
+ * 	If `delim` is never met, the entirety of the remaining string returns.
+ *  If `pos` is larger than the size of the string, std::out_of_range is thrown.
  */
- String String::substr(char delim, size_t pos)
+string string::substr(char delim, size_t pos)
 {
 	if (pos > size())
 	{
-		throw new std::out_of_range("String::substr() - pos was larger than String.size()");
+		throw new std::out_of_range("string::substr() - pos was larger than string.size()");
 	}
 	return std::string::substr(pos, find(' ', pos));
 }
 
 #endif /* 98 */
-
-// C++11 definitions
-#if USING_STD(CPP11)
-
-String::String(const char* str_literal) : std::string(str_literal) { }
-String::String(const std::string& str) : std::string(str) { }
-
-#endif /* 11 */

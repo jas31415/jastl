@@ -11,14 +11,14 @@
 #define CPP23 202302L // C++23 macro value
 #define CPP26 202400L // C++26 macro value (they might change this later lol)
 
-// @returns  If C++ standard version is the same as @e ver
+// @returns  If C++ standard version is the same as ver
 #define USING_STD(ver) __cplusplus == ver
-// @returns  If C++ standard version is the same as @e ver or older 
+// @returns  If C++ standard version is the same as ver or older 
 #define USING_STD_MINIMUM(ver) __cplusplus >= ver
 
 // cross-standard compatbility hacks
 #if USING_STD(CPP98)
 
-#define nullptr (void*)0
+#define nullptr NULL
 
 #endif /* 98 */

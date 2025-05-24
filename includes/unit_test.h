@@ -2,7 +2,7 @@
 #include "macros.h"
 
 /*
-	jastd UnitTest base class
+	jastd UnitTests base class
 */
 class UnitTest
 {
@@ -11,11 +11,14 @@ public:
 #if USING_STD(CPP98)
 
 	UnitTest();
-	virtual ~UnitTest() = 0;
 
 	virtual void PerformTests() = 0;
 
-private:
-	UnitTest(const UnitTest& other){};
+	private:
+	// = deleted
+	UnitTest(const UnitTest& other);
+	// = deleted
+	UnitTest& operator=(const UnitTest& other);
+	// = 
 #endif /* 98 */
 };
