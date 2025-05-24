@@ -38,13 +38,13 @@ int main()
 	string arg;
 	
 	// index where the last argument stopped, 0 if new argument is being parsed
-	size_t prev_idx;
+	size_t prevIdx;
 
 	std::cout << welcomeMessage << helpMessage << std::endl;
 
 	while (true)
 	{
-		prev_idx = 0;
+		prevIdx = 0;
 		
 		// requesting command
 		std::cout << "> ";
@@ -54,8 +54,8 @@ int main()
 		do
 		{
 			// obtain argument
-			arg = cmd.substr(' ', prev_idx);
-			prev_idx += arg.size() + 1;
+			arg = cmd.substr(' ', prevIdx);
+			prevIdx += arg.size() + 1;
 
 			// validate argument
 			if (arg.size() > maxArgLen)
@@ -64,10 +64,10 @@ int main()
 				// TODO: add context sensitive feedback
 				break;
 			}
-			
+
 			// TODO1: set some argument flags in an arg_flag type or whatever
 		}
-		while (prev_idx < cmd.size());
+		while (prevIdx < cmd.size());
 
 		// TODO2: make a switch that does stuff depending on the values in arg_flags
 	}
