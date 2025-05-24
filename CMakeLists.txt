@@ -7,7 +7,7 @@ if(EXISTS ${CMAKE_BINARY_DIR})
 	file(REMOVE_RECURSE ${CMAKE_BINARY_DIR})
 endif()
 
-# manage include folders here, depending on selected c++ standard
+# add includes directory to library and executable
 include_directories(includes)
 
 # this generates the actual library (static)
